@@ -1,12 +1,41 @@
 ﻿using System;
+using System.Threading.Tasks;
+using WeatherApp;
+using WeatherLibrary;
+using WeatherLibrary.Models;
 
 namespace WeatherApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            WeatherGenerator weatherGenerator = new WeatherGenerator();
+            WeatherInformation weatherInformation =  await WeatherGenerator.GetWeatherfaceAsync();
+
+
+            Console.SetCursorPosition(10, 2);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("Temperature: " + weatherInformation.Temperature);
+
+            Console.SetCursorPosition(10, 5);
+            Console.Write("Humidity: " + weatherInformation.Humidity);
+
+            Console.SetCursorPosition(10, 7);
+            Console.Write("Weather: " + weatherInformation.Weather);
+
+
+            /*var  splitting =weatherString.Split(' ');
+            foreach (var split in splitting)
+            {
+                var splitting1 = split.Split(':');
+
+                foreach (var split1 in splitting1)
+
+                    Console.WriteLine(split1);
+                   // Console.WriteLine(split);
+            } 
+            */
         }
     }
 }
