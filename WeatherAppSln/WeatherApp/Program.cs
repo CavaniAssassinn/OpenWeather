@@ -14,8 +14,8 @@ namespace WeatherApp
             WeatherInformation weatherInformation =  await WeatherGenerator.GetWeatherfaceAsync();
 
 
-            Console.SetCursorPosition(10, 2);
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.SetCursorPosition(3, 2);   
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write("Temperature: " + weatherInformation.Temperature);
 
             Console.SetCursorPosition(10, 5);
